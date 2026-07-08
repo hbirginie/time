@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    background: #000000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.timer-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.timer-display {
+    font-size: clamp(60px, 18vw, 120px);
+    font-weight: 200;
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', monospace;
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+/* Animation de clignotement style Apple */
+@keyframes blink {
+    0%, 100% {
+        background-color: #e74c3c;
+    }
+    50% {
+        background-color: #e0392b;
+    }
+}
+
+.blinking {
+    animation: blink 0.6s ease-in-out infinite;
+}
+
+/* Optimisations iPhone */
+@media (max-width: 430px) {
+    .timer-display {
+        font-size: 20vw;
+    }
+}
+
+/* Support du mode sombre iOS */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #000000;
+    }
+}

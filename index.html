@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronomètre Salle de Sport</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <label for="rest-time">Temps de repos :</label>
+            <select id="rest-time">
+                <option value="15">15s</option>
+                <option value="30">30s</option>
+                <option value="45">45s</option>
+                <option value="60">1m 00s</option>
+                <option value="75">1m 15s</option>
+                <option value="90">1m 30s</option>
+                <option value="105">1m 45s</option>
+                <option value="120">2m 00s</option>
+                <option value="135">2m 15s</option>
+                <option value="150">2m 30s</option>
+                <option value="165">2m 45s</option>
+                <option value="180">3m 00s</option>
+            </select>
+        </div>
+        
+        <button id="start-btn" class="start-button">START</button>
+    </div>
+    
+    <script>
+        document.getElementById('start-btn').addEventListener('click', function() {
+            const selectedTime = document.getElementById('rest-time').value;
+            localStorage.setItem('restTime', selectedTime);
+            window.location.href = 'timer.html';
+        });
+    </script>
+</body>
+</html>
