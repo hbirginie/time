@@ -2,37 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="body">
     <div class="container">
-        <div class="controls">
-            <label for="rest-time">Rest time :</label>
-            <select id="rest-time">
-                <option value="10">10s</option>
-                <option value="90">1m 30s</option>
-                <option value="105">1m 45s</option>
-                <option value="120">2m 00s</option>
-                <option value="135">2m 15s</option>
-                <option value="150">2m 30s</option>
-                <option value="165">2m 45s</option>
-                <option value="180">3m 00s</option>
-            </select>
-        </div>
-        
-        <button id="start-btn" class="start-button">START</button>
+        <div class="display" id="display">00:00</div>
     </div>
-    
-    <script>
-        document.getElementById('start-btn').addEventListener('click', function() {
-            const selectedTime = document.getElementById('rest-time').value;
-            localStorage.setItem('restTime', selectedTime);
-            window.location.href = 'timer.html';
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
