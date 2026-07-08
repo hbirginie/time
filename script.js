@@ -1,15 +1,10 @@
-let timer;
-let timeElapsed = 0;
+let startTime;
 let isRunning = false;
+let timer;
 const restTime = 135; // 2m15
 
 const timerDisplay = document.getElementById('display');
 const timerBody = document.getElementById('body');
-
-function initTimer() {
-    timeElapsed = 0;
-    updateDisplay();
-}
 
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
@@ -18,27 +13,39 @@ function formatTime(seconds) {
 }
 
 function updateDisplay() {
+    if (!isRunning) {
+        timerDisplay.textContent = formatTime(0);
+        return;
+    }
+    
+    const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
     timerDisplay.textContent = formatTime(timeElapsed);
+    
+    if (timeElapsed >= restTime) {
+        timerBody.classList.add('blinking');
+    } else {
+        timerBody.classList.remove('blinking');
+    }
 }
 
 function startTimer() {
     if (isRunning) stopTimer();
+    
     timerBody.classList.remove('blinking');
-    timeElapsed = 0;
+    startTime = Date.now();
     isRunning = true;
-    timer = setInterval(() => {
-        timeElapsed++;
-        updateDisplay();
-        if (timeElapsed >= restTime) timerBody.classList.add('blinking');
-    }, 1000);
+    
+    timer = setInterval(updateDisplay, 1000);
     updateDisplay();
 }
 
 function stopTimer() {
     clearInterval(timer);
     isRunning = false;
+    updateDisplay();
 }
 
 timerBody.addEventListener('click', startTimer);
 
-initTimer();
+// Initialisation
+timerDisplay.textContent = formatTime(0);
