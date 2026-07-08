@@ -45,7 +45,18 @@ function stopTimer() {
     updateDisplay();
 }
 
+function resetTimer() {
+    stopTimer();
+    timerBody.classList.remove('blinking');
+    timerDisplay.textContent = formatTime(0);
+}
+
 timerBody.addEventListener('click', startTimer);
+
+timerBody.addEventListener('dblclick', (e) => {
+    e.preventDefault();
+    resetTimer();
+});
 
 document.addEventListener('visibilitychange', () => {
     if (!document.hidden && isRunning) {

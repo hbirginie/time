@@ -40,7 +40,7 @@ body {
 
 .display {
     font-size: clamp(80px, 35vw, 180px);
-    font-weight: 400;
+    font-weight: 500;
     color: #FFF;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', monospace;
     letter-spacing: -0.02em;
