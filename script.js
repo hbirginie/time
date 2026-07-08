@@ -1,7 +1,7 @@
 let startTime;
 let isRunning = false;
 let timer;
-const restTime = 135; // 2m15
+const restTime = 135;
 
 const timerDisplay = document.getElementById('display');
 const timerBody = document.getElementById('body');
@@ -47,5 +47,10 @@ function stopTimer() {
 
 timerBody.addEventListener('click', startTimer);
 
-// Initialisation
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && isRunning) {
+        updateDisplay();
+    }
+});
+
 timerDisplay.textContent = formatTime(0);
