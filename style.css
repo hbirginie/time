@@ -39,8 +39,8 @@ body {
 }
 
 .display {
-    font-size: clamp(80px, 25vw, 180px);
-    font-weight: 500;
+    font-size: clamp(80px, 35vw, 180px);
+    font-weight: 400;
     color: #FFF;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', monospace;
     letter-spacing: -0.02em;
@@ -67,7 +67,7 @@ body {
 }
 
 @media (max-width: 430px) {
-    .display { font-size: 20vw; }
+    .display { font-size: 35vw; }
 }
 
 @media (prefers-color-scheme: dark) {
